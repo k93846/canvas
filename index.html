@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    
     <div id="canvas"></div>
     <script>
       canvas.onclick = (e) => {
@@ -20,9 +21,11 @@
         div.style.left = e.clientY + "px";
         div.style.width = "6px";
         div.style.height = "6px";
-        
-        
-        
+        div.style.marginLeft = "-3px";
+        div.style.marginTop = "-3px";
+        div.style.borderRadius = "50%";
+        div.style.backgroundColor = "black";
+        canvas.appendChild(div);
       };
     </script>
   </body>
