@@ -6,12 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>画板</title>
     <link rel="stylesheet" href="style.css" />
-    <style>
-      #canvas {
-        height: 100vh;
-        border: 1px solid red;
-      }
-    </style>
   </head>
   <body>
     <div id="canvas"></div>
@@ -19,7 +13,6 @@
       canvas.onclick = (e) => {
         console.log(e.clientX);
         console.log(e.clientX);
-
         let div = document.createElement("div");
         div.style.position = "absolute";
         div.style.left = e.clientX + "px";
