@@ -8,22 +8,18 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="canvas"></div>
+    <canvas id="canvas" width="100" height="100"></canvas>
     <script>
-      canvas.onclick = (e) => {
+      let canvas = document.getElementById("canvas");
+      canvas.width = document.documentElement.clientWidth;
+      canvas.height = document.documentElement.clientHeight;
+      //画线
+      let ctx = canvas.getContext("2d");
+      ctx.fillStyle = "blue";
+      canvas.onmousemove = (e) => {
         console.log(e.clientX);
-        console.log(e.clientX);
-        let div = document.createElement("div");
-        div.style.position = "absolute";
-        div.style.left = e.clientX + "px";
-        div.style.top = e.clientY + "px";
-        div.style.width = "6px";
-        div.style.height = "6px";
-        div.style.marginLeft = "-3px";
-        div.style.marginTop = "-3px";
-        div.style.borderRadius = "50%";
-        div.style.backgroundColor = "black";
-        canvas.appendChild(div);
+        console.log(e.clientY);
+        ctx.fillRect(e.clientX -15, e.clientY -15, 10, 10);
       };
     </script>
   </body>
