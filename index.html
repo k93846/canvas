@@ -15,11 +15,22 @@
       canvas.height = document.documentElement.clientHeight;
       //画线
       let ctx = canvas.getContext("2d");
+      let painting = false;
       ctx.fillStyle = "blue";
+
+      canvas.onmousedown = () => {
+        painting = true;
+      };
       canvas.onmousemove = (e) => {
-        console.log(e.clientX);
-        console.log(e.clientY);
-        ctx.fillRect(e.clientX -15, e.clientY -15, 10, 10);
+        if (painting === true) {
+          ctx.fillRect(e.clientX - 15, e.clientY - 15, 10, 10);
+        } else {
+          console.log("什么都不做");
+        }
+      };
+
+      canvas.onmouseup = () => {
+        painting = false;
       };
     </script>
   </body>
