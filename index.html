@@ -15,9 +15,21 @@
       canvas.height = document.documentElement.clientHeight;
       //画线
       let ctx = canvas.getContext("2d");
-      let painting = false;
+      
       ctx.fillStyle = "black";
       ctx.strokeStyle = "none";
+      let painting = false;
+
+var isTouchDevice='ontouchstart' in
+document.documentElement;
+if(isTouchDevice){
+  canvas.ontouchmove = (e)=>{
+console.log(e)    
+  }
+}else{
+
+}
+
 
       canvas.onmousedown = () => {
         painting = true;
@@ -28,9 +40,8 @@
           ctx.arc(e.clientX, e.clientY, 10, 0, 2 * Math.PI);
           ctx.stroke();
           ctx.fill();
-        } else {
-          console.log("什么都不做");
-        }
+        } 
+        
       };
 
       canvas.onmouseup = () => {
