@@ -16,14 +16,18 @@
       //画线
       let ctx = canvas.getContext("2d");
       let painting = false;
-      ctx.fillStyle = "blue";
+      ctx.fillStyle = "black";
+      ctx.strokeStyle = "none";
 
       canvas.onmousedown = () => {
         painting = true;
       };
       canvas.onmousemove = (e) => {
         if (painting === true) {
-          ctx.fillRect(e.clientX - 15, e.clientY - 15, 10, 10);
+          ctx.beginPath();
+          ctx.arc(e.clientX, e.clientY, 10, 0, 2 * Math.PI);
+          ctx.stroke();
+          ctx.fill();
         } else {
           console.log("什么都不做");
         }
