@@ -18,6 +18,14 @@
 
       ctx.fillStyle = "black";
       ctx.strokeStyle = "none";
+
+      function drawLine(x1, y1, x2, y2) {
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.stroke();
+      }
+
       let painting = false;
 
       var isTouchDevice = "ontouchstart" in document.documentElement;
@@ -37,10 +45,7 @@
         };
         canvas.onmousemove = (e) => {
           if (painting === true) {
-            ctx.beginPath();
-            ctx.arc(e.clientX, e.clientY, 10, 0, 2 * Math.PI);
-            ctx.stroke();
-            ctx.fill();
+            drawLine(0, 0, e.clientX, e.clientY);
           }
         };
 
